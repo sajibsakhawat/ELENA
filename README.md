@@ -18,7 +18,7 @@ The working example is the **Abelian Higgs** model.
   Mathematica notebook running the **DRalgo** routines for the Abelian Higgs model and producing the effective (dimensionally reduced) 3D potential as a function of \( \phi \) and \( T \).
 
 - **`ah_pot.m`**  
-  MATLAB file containing the **Abelian Higgs 3D effective potential** exported from `DRalgo.nb`.  
+  Mathematica file containing the **Abelian Higgs 3D effective potential** exported from `DRalgo.nb`.  
   This is *not* a converter script; it is the actual potential implementation generated from DRalgo and then rewritten/extracted into a MATLAB function.
 
 - **`ELENA_integration.ipynb`**  
