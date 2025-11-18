@@ -19,7 +19,7 @@ The working example is the **Abelian Higgs** model.
 
 - **`ah_pot.m`**  
   Mathematica file containing the **Abelian Higgs 3D effective potential** exported from `DRalgo.nb`.  
-  This is *not* a converter script; it is the actual potential implementation generated from DRalgo and then rewritten/extracted into a MATLAB function.
+  This is *not* a converter script; it is the actual potential implementation generated from DRalgo and then rewritten/extracted into a Mathematica function.
 
 - **`ELENA_integration.ipynb`**  
   Jupyter notebook that:
