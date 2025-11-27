@@ -1,39 +1,28 @@
-# ELENA – DRalgo → ELENA bridge for Abelian Higgs
+# ELENA – Dimensionally Reduced Potentials (Abelian Higgs & SM)
 
-**Translating DRalgo effective potentials to ELENA for phase transition and nucleation analysis**
+This repo contains my extensions to **ELENA** for comparing **dimensionally reduced (3D)** effective potentials (from **DRalgo**) with their corresponding **4D thermal potentials** for:
 
-This repository is a small, self-contained example of how to take an effective potential obtained with **DRalgo** (in Mathematica), and use it inside **ELENA** to:
+- Abelian Higgs model  
+- Standard Model
 
-- implement the potential in a convenient format,
-- plug it into a **custom ELENA model class**, and  
-- run the **standard ELENA benchmark routines** to obtain plots and thermal quantities.
-
-The working example is the **Abelian Higgs** model.
+The 3D potentials are first obtained in **Mathematica** using DRalgo and then translated into **Python** via a custom Mathematica → Python generic potential translator. A minimal custom model class mimics ELENA’s `model` interface to plug these potentials into the existing code.
 
 ---
 
-## Repository contents
+## Structure
 
-- **`DRalgo.nb`**  
-  Mathematica notebook running the **DRalgo** routines for the Abelian Higgs model and producing the effective (dimensionally reduced) 3D potential as a function of \( \phi \) and \( T \).
+```text
+ah_pot.m              # DR (3D) Abelian Higgs potential from DRalgo (Mathematica)
+SM_pot.m              # DR (3D) Standard Model potential from DRalgo (Mathematica)
 
-- **`ah_pot.m`**  
-  Mathematica file containing the **Abelian Higgs 3D effective potential** exported from `DRalgo.nb`.  
-  This is *not* a converter script; it is the actual potential implementation generated from DRalgo and then rewritten/extracted into a Mathematica function.
+AH_elena.py           # Python implementation of AH DR potential + 4D comparison
+SM_elena.py           # Python implementation of SM DR potential + 4D comparison
 
-- **`ELENA_integration.ipynb`**  
-  Jupyter notebook that:
-  - defines a **custom ELENA model class** for the Abelian Higgs potential,
-  - wires this model into ELENA’s standard routines, and
-  - demonstrates how to **run ELENA using an externally provided potential** (in this case, the one coming from DRalgo via `ah_pot.m` / its Python equivalent).
+potential_3d.py       # Generic helpers for 3D potentials (matching, numerics, etc.)
+model_template.py     # Custom model class mimicking ELENA’s internal model
 
-- **`AH_ELENA_benchmark.ipynb`**  
-  Jupyter notebook that:
-  - uses ELENA’s **benchmark workflow** with the Abelian Higgs potential,
-  - evaluates and **plots the potential** \( V(\phi, T) \) for different temperatures, and
-  - **extracts thermal quantities** such as critical temperatures and characteristic phase-transition observables (e.g. minima, order parameter, tunnelling action \( S_3/T \), etc., depending on the cells you run).
+Mathematica_Plots.pdf # Reference plots of AH DR potential from Mathematica
 
----
 
 ## Prerequisites
 
